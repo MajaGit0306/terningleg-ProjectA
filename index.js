@@ -133,7 +133,7 @@ button.addEventListener("click", function() {
 
     // Her fjerner den spillet og viser, hvem der vinder
     if (minePointVærdi >= 5 || computerensPointVærdi >= 5) {
-      game.style.display = "none";
+      game.remove();
       const vinderen = document.createElement("div");
       spilRamme.insertBefore(vinderen, spilRamme.children[1]); 
       vinderen.id = "vinderen";
@@ -148,16 +148,17 @@ button.addEventListener("click", function() {
         vinderen.textContent = "Der er uafgjort";
       }
 
+      // her laver den et knap, hvor man kan starte et nyt spil
       const startNytSpil = document.createElement("button");
       spilRamme.appendChild(startNytSpil);
       startNytSpil.textContent = "START ET NYT SPIL";
-      buttonKast.style.display = "none";
+      buttonKast.remove(); // remove() fjerner elementet helt
 
       startNytSpil.addEventListener("click", function() {
         start.style.display = "block";
         button.style.display = "block";
-        vinderen.style.display = "none";
-        startNytSpil.style.display = "none";
+        vinderen.remove();
+        startNytSpil.remove();
         computerensPointVærdi = 0;
         minePointVærdi = 0;
       })
