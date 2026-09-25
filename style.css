@@ -1,6 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,11 +19,12 @@ p {
 }
 
 #spilRamme {
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
   min-height: 800px;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   border-radius: 30px;
   text-align: center;
   overflow: hidden;
@@ -34,7 +41,7 @@ p {
   margin: 0;
   font-family: "Cherry Bomb One", system-ui;
   font-weight: 200;
-  font-size: 3em;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   letter-spacing: 2px;
 }
 #spilRamme #overskrift .terning3D {
@@ -42,25 +49,28 @@ p {
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
+  flex-shrink: 0;
 }
-#spilRamme #start, #spilRamme #game {
+#spilRamme #start,
+#spilRamme #game {
   width: 80%;
   justify-self: center;
   align-self: center;
   padding: 30px 50px;
-  box-sizing: border-box;
-  background-color: rgb(249, 249, 249);
+  background-color: #f9f9f9;
   border-radius: 15px;
   font-size: 1.2em;
   box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-#spilRamme #start h2, #spilRamme #game h2 {
+#spilRamme #start h2,
+#spilRamme #game h2 {
   margin-top: 0;
   font-family: "Cherry Bomb One", system-ui;
   font-weight: 200;
   letter-spacing: 5px;
 }
-#spilRamme #start ul, #spilRamme #game ul {
+#spilRamme #start ul,
+#spilRamme #game ul {
   margin: 0;
   padding-left: 30px;
   text-align: left;
@@ -69,65 +79,76 @@ p {
   line-height: 1.6em;
 }
 #spilRamme #vinderen {
-  font-size: 3em;
   display: flex;
-  font-family: "Cherry Bomb One", system-ui;
   justify-content: center;
   align-items: center;
+  padding: 25px;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-family: "Cherry Bomb One", system-ui;
   font-weight: 500;
+  overflow-wrap: anywhere;
 }
 #spilRamme #game {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
-  row-gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 #spilRamme #game .point {
+  min-width: 0;
   border-radius: 10px;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
+  padding: 15px;
 }
-#spilRamme #game .point h3, #spilRamme #game .point p {
+#spilRamme #game .point h3,
+#spilRamme #game .point p {
   font-family: "Cherry Bomb One", system-ui;
   letter-spacing: 3px;
 }
-#spilRamme #game .point p {
-  font-size: 5rem;
-  margin: 0 0 10px 0;
-}
 #spilRamme #game .point h3 {
-  margin: 20px 0 0 0;
+  margin: 10px 0;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+#spilRamme #game .point p {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  margin: 0;
 }
 #spilRamme #game .point:first-child {
   border: 3px solid #4e47d4;
   background-color: #e2f0f3;
 }
-#spilRamme #game .point:first-child p, #spilRamme #game .point:first-child h3 {
+#spilRamme #game .point:first-child p,
+#spilRamme #game .point:first-child h3 {
   color: #4e47d4;
 }
 #spilRamme #game .point:nth-child(2) {
   border: 3px solid #d54dd8;
   background-color: #f8e8f9;
 }
-#spilRamme #game .point:nth-child(2) p, #spilRamme #game .point:nth-child(2) h3 {
+#spilRamme #game .point:nth-child(2) p,
+#spilRamme #game .point:nth-child(2) h3 {
   color: #d54dd8;
 }
 #spilRamme #game .terningerRamme {
-  background-color: rgb(255, 255, 255);
+  grid-column: 1/-1;
+  min-width: 0;
+  background-color: #ffffff;
   border-radius: 15px;
-  grid-column: 1/span 2;
   border: 1px solid #4e47d4;
+  padding: 15px;
+}
+#spilRamme #game .terningerRamme > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 #spilRamme #game .terningerRamme img {
   width: 70px;
-  padding: 0.5em;
-}
-#spilRamme #game button {
-  grid-column: 1/span 2;
-}
-#spilRamme button:disabled {
-  background-color: grey;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
 }
 #spilRamme button {
   border: none;
@@ -140,11 +161,12 @@ p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   justify-self: center;
   align-self: center;
-  width: 15em;
-  height: 3em;
-  margin: 30px;
-  font-size: 2rem;
-  letter-spacing: 5px;
+  width: min(480px, 100% - 40px);
+  min-height: 3em;
+  margin: 25px auto;
+  padding: 12px 20px;
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  letter-spacing: 3px;
 }
 #spilRamme button:hover {
   background-color: #442e9b;
@@ -154,24 +176,136 @@ p {
 #spilRamme button:active {
   transform: translateY(1px);
 }
+#spilRamme button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+  transform: none;
+}
 
 @media (max-width: 950px) {
   #spilRamme {
-    width: 90%;
     min-height: 700px;
   }
+  #spilRamme #overskrift {
+    gap: 15px;
+  }
   #spilRamme #overskrift h1 {
-    font-size: 2.3em;
+    font-size: clamp(1.6rem, 4.5vw, 2.5rem);
   }
   #spilRamme #overskrift .terning3D {
     width: 60px;
   }
-  #spilRamme #start, #spilRamme #game {
+  #spilRamme #start,
+  #spilRamme #game {
     width: 90%;
     padding: 25px;
-    font-size: 1.3em;
+    font-size: 1.1rem;
+  }
+  #spilRamme #game .terningerRamme img {
+    width: 60px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    min-height: 100dvh;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  #spilRamme {
+    width: 100%;
+    min-height: auto;
+    border-radius: 20px;
+    grid-template-rows: auto 1fr auto;
+  }
+  #spilRamme #overskrift {
+    gap: 8px;
+    padding: 20px 10px;
+  }
+  #spilRamme #overskrift h1 {
+    font-size: clamp(1.2rem, 4.5vw, 1.7rem);
+    letter-spacing: 1px;
+  }
+  #spilRamme #overskrift .terning3D {
+    width: 35px;
+  }
+  #spilRamme #start {
+    width: calc(100% - 24px);
+    padding: 25px 18px;
+    font-size: 1rem;
+  }
+  #spilRamme #start h2 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  #spilRamme #start ul {
+    padding-left: 20px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  #spilRamme #game {
+    width: calc(100% - 24px);
+    padding: 12px;
+    gap: 8px;
+  }
+  #spilRamme #game .point {
+    padding: 10px 5px;
+    border-width: 2px;
+  }
+  #spilRamme #game .point h3 {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    letter-spacing: 1px;
+  }
+  #spilRamme #game .point p {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  #spilRamme #game .terningerRamme {
+    padding: 12px 6px;
+  }
+  #spilRamme #game .terningerRamme > div {
+    gap: 4px;
+  }
+  #spilRamme #game .terningerRamme img {
+    width: clamp(36px, 10vw, 58px);
+    height: auto;
+  }
+  #spilRamme #game .terningerRamme p {
+    font-size: 0.9rem;
+    margin: 5px 0 12px;
   }
   #spilRamme button {
-    font-size: 1.5em;
+    width: calc(100% - 30px);
+    min-height: 60px;
+    margin: 20px auto;
+    padding: 12px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+  #spilRamme #vinderen {
+    font-size: 2rem;
+    padding: 30px 15px;
+  }
+}
+@media (max-width: 400px) {
+  #spilRamme #overskrift {
+    gap: 5px;
+  }
+  #spilRamme #overskrift h1 {
+    font-size: 1.2rem;
+  }
+  #spilRamme #overskrift .terning3D {
+    width: 28px;
+  }
+  #spilRamme #game .point h3 {
+    font-size: 0.75rem;
+  }
+  #spilRamme #game .point p {
+    font-size: 2rem;
+  }
+  #spilRamme #game .terningerRamme img {
+    width: 36px;
+  }
+  #spilRamme button {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */
