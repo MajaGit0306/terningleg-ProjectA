@@ -1,0 +1,177 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #5dcae2, #4e47d4, #d54dd8);
+  color: #222;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#spilRamme {
+  width: 900px;
+  min-height: 800px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+#spilRamme #overskrift {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+#spilRamme #overskrift h1 {
+  margin: 0;
+  font-family: "Cherry Bomb One", system-ui;
+  font-weight: 200;
+  font-size: 3em;
+  letter-spacing: 2px;
+}
+#spilRamme #overskrift .terning3D {
+  width: 80px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#spilRamme #start, #spilRamme #game {
+  width: 80%;
+  justify-self: center;
+  align-self: center;
+  padding: 30px 50px;
+  box-sizing: border-box;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px;
+  font-size: 1.2em;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+#spilRamme #start h2, #spilRamme #game h2 {
+  margin-top: 0;
+  font-family: "Cherry Bomb One", system-ui;
+  font-weight: 200;
+  letter-spacing: 5px;
+}
+#spilRamme #start ul, #spilRamme #game ul {
+  margin: 0;
+  padding-left: 30px;
+  text-align: left;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8em;
+  line-height: 1.6em;
+}
+#spilRamme #vinderen {
+  font-size: 3em;
+  display: flex;
+  font-family: "Cherry Bomb One", system-ui;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+#spilRamme #game {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  row-gap: 10px;
+}
+#spilRamme #game .point {
+  border-radius: 10px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+#spilRamme #game .point h3, #spilRamme #game .point p {
+  font-family: "Cherry Bomb One", system-ui;
+  letter-spacing: 3px;
+}
+#spilRamme #game .point p {
+  font-size: 5rem;
+  margin: 0 0 10px 0;
+}
+#spilRamme #game .point h3 {
+  margin: 20px 0 0 0;
+}
+#spilRamme #game .point:first-child {
+  border: 3px solid #4e47d4;
+  background-color: #e2f0f3;
+}
+#spilRamme #game .point:first-child p, #spilRamme #game .point:first-child h3 {
+  color: #4e47d4;
+}
+#spilRamme #game .point:nth-child(2) {
+  border: 3px solid #d54dd8;
+  background-color: #f8e8f9;
+}
+#spilRamme #game .point:nth-child(2) p, #spilRamme #game .point:nth-child(2) h3 {
+  color: #d54dd8;
+}
+#spilRamme #game .terningerRamme {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  grid-column: 1/span 2;
+  border: 1px solid #4e47d4;
+}
+#spilRamme #game .terningerRamme img {
+  width: 70px;
+  padding: 0.5em;
+}
+#spilRamme #game button {
+  grid-column: 1/span 2;
+}
+#spilRamme button:disabled {
+  background-color: grey;
+}
+#spilRamme button {
+  border: none;
+  border-radius: 12px;
+  background-color: #5c43c0;
+  color: white;
+  cursor: pointer;
+  font-family: "Cherry Bomb One", system-ui;
+  transition: 0.2s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  justify-self: center;
+  align-self: center;
+  width: 15em;
+  height: 3em;
+  margin: 30px;
+  font-size: 2rem;
+  letter-spacing: 5px;
+}
+#spilRamme button:hover {
+  background-color: #442e9b;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+#spilRamme button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 950px) {
+  #spilRamme {
+    width: 90%;
+    min-height: 700px;
+  }
+  #spilRamme #overskrift h1 {
+    font-size: 2.3em;
+  }
+  #spilRamme #overskrift .terning3D {
+    width: 60px;
+  }
+  #spilRamme #start, #spilRamme #game {
+    width: 90%;
+    padding: 25px;
+    font-size: 1.3em;
+  }
+  #spilRamme button {
+    font-size: 1.5em;
+  }
+}/*# sourceMappingURL=style.css.map */
